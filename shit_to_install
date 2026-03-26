@@ -1,0 +1,92 @@
+for arch btw
+
+SNAPSHOTS
+
+sudo pacman -S snapper
+
+then
+
+sudo snapper -c root create --description "just-in-case"
+
+should things fuck up
+
+sudo snapper list (find id)
+
+sudo snapper rollback "insert_id_here"
+
+FIREWALL
+
+sudo pacman -S ufw
+
+then
+
+sudo ufw enable
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+
+AUR
+
+sudo pacman -S --needed base-devel git
+
+then
+
+git clone https://aur.archlinux.org/yay.git
+
+then
+
+cd yay
+
+then
+
+makepkg -si
+
+XLIBRE (if on artix you don't have to do this, it should already be in your package manager.)
+
+nano /etc/pacman.conf
+
+add
+
+# XLIBRE
+[xlibre]
+Server = https://x11libre.net/repo/arch_based/x86_64
+
+then
+
+sudo pacman -Syu (ensures xlibre server is added to your packages, then replaces xorg/x11 stuff with xlibre.)
+
+WINE
+
+sudo pacman -S wine-staging wine-gecko wine-mono winetricks protontricks
+
+then
+
+winetricks -q vcrun6 vcrun2005 vcrun2008 vcrun2019 dotnet48 corefonts allcodecs binkw32 d3dx9 d3dx10 d3dx11 dxvk dotnet48 fontsmooth-rgb
+
+ZSH
+
+sudo pacman -S zsh zsh-syntax-hightlighting zsh-autosuggestions
+
+then
+
+mkdir -p ~/.cache/zsh
+
+then
+
+mv .zshrc ~/
+
+FASTFETCH
+
+sudo pacman -S fastfetch
+
+then
+
+mkdir -p ~/.config/fastfetch
+
+mv config.jsonc ~/.config/fastfetch
+
+OTHER USELESS BULLSHIT IDGAF ABOUT
+
+sudo pacman -S lib32-vulkan-validation-layers lib32-vulkan-utility-libraries lib32-vulkan-radeon lib32-vulkan-mesa-implicit-layers lib32-vulkan-icd-loader lib32-vulkan-dzn spirv-tools vulkan-dzn vulkan-icd-loader vulkan-mesa-implicit-layers vulkan-nouveau vulkan-radeon vulkan-tools vulkan-utility-libraries vkd3d gamemode lib32-gamemode mangohud lib32-mangohud ntfs-3g yt-dlp deno vlc vlc-plugins-all vlc-plugins-extra obs-studio nvim unrar unzip 7zip ffmpeg ffmpegthumbnailer gwenview gimp krita kdenlive networkmanager qbittorrent supertux supertuxkart element-desktop telegram-desktop umu-launcher lutris veracrypt btop git flatpak
+
+yay openarena betterbird-bin megasync-bin heroic-games-launcher-bin protonup-qt-bin
